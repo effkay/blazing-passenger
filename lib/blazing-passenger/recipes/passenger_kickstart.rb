@@ -1,9 +1,16 @@
-module Blazing
-  module Passenger
-    class Kickstart < Blazing::Recipe
-      def run
-        # system 'touch tmp/restart.txt'
-      end
+require 'httparty'
+
+class Blazing::Recipe::PassengerKickstart < Blazing::Recipe
+
+  def run
+    if options[:url]
+      info "Kickstarting #{options[:url]}"
+      HTTParty.get(options[:url])
+    else
+      error "No URL was specified for Passenger Kickstart"
     end
+  rescue
+    error "Unable to perform a GET request on #{options[:url]}"
   end
+
 end

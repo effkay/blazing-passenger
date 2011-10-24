@@ -1,15 +1,9 @@
-module Blazing
-  module Passenger
-    class Restart < Blazing::Recipe
+class Blazing::Recipe::PassengerRestart < Blazing::Recipe
 
-      def initialize(name, options = {})
-        super(name, options)
-      end
-
-      def run
-        system 'touch tmp/restart.txt'
-      end
-
-    end
+  def run
+    info 'Restarting passenger'
+    Dir.mkdir('tmp') unless File.exists? 'tmp'
+    system 'touch tmp/restart.txt'
   end
+
 end
