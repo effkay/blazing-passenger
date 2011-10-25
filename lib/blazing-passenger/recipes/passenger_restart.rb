@@ -1,3 +1,5 @@
+require 'blazing/recipe'
+
 class Blazing::Recipe::PassengerRestart < Blazing::Recipe
 
   def run
