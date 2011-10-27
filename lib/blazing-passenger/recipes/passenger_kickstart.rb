@@ -3,7 +3,9 @@ require 'blazing/recipe'
 
 class Blazing::Recipe::PassengerKickstart < Blazing::Recipe
 
-  def run
+  def run(target_options = {})
+    super target_options
+
     if @options && @options.has_key?(:url)
       info "Kickstarting #{@options[:url]}"
       HTTParty.get(@options[:url])
