@@ -12,7 +12,7 @@ Enable the recipes you want in your blazing configuration file:
 
 * `recipe :passenger_restart` will touch tmp/restart.txt so passenger gets restarted after a deployment
 
-* `recipe :passenger_kickstart <URL>` will make a GET request on the given URL to kickstart passenger. Note: you must priovide the full URL including protocol (http/https...) 
+* `recipe :passenger_kickstart, :url => '<URL>'` will make a GET request on the given URL to kickstart passenger. Note: you must provide the full URL including protocol (http/https...) 
 
 ## Authors
 
